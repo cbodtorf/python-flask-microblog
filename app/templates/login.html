@@ -10,6 +10,9 @@
       <!-- form.field_name refers to LoginForm class -->
       <!-- size= 80 sets field width to 80 characters -->
       {{ form.openid(size=80) }} <br>
+      {% for error in form.openid.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}<br>
     </p>
 
     <p> {{ form.remember_me }} Remember Me</p>
