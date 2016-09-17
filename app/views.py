@@ -31,4 +31,6 @@ def login():
               (form.openid.data, str(form.remember_me.data)))
         return redirect('/index')
     return render_template(
-        'login.html', title='Sign In', form=form)
+        'login.html', title='Sign In',
+        form=form,
+        providers=blg.config['OPENID_PROVIDERS'])
