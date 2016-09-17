@@ -1,3 +1,12 @@
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+# required. This is the path of our data files
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+# this is the directory where we store SQLAlchemy-migrate data files
+SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
 WTF_CSRF_ENABLED = True
 SECRET_KEY = 'qcn09845nuqoisadklnsdjfk'
 
