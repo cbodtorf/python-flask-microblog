@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Sign In</h1>
+  <form class="" action="" method="post" name="login">
+    <!-- will get replace by hidden field that implements CSRF prevention-->
+    {{ form.hidden_tag() }}
+    <p>
+      Please enter your OpenID: <br>
+      <!-- form.field_name refers to LoginForm class -->
+      <!-- size= 80 sets field width to 80 characters -->
+      {{ form.openid(size=80) }} <br>
+    </p>
+
+    <p> {{ form.remember_me }} Remember Me</p>
+    <p><input type="submit" value="Sign In"></p>
+  </form>
+{% endblock %}
