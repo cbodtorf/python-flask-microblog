@@ -1,9 +1,18 @@
+import os
 from flask import Flask
+from flask_login import LoginManager
+from flask_openid import OpenID
 from flask_sqlalchemy import SQLAlchemy
+from config import basedir
 
 
-blg = Flask(__name__)
-blg.config.from_object('config')
-db = SQLAlchemy(blg)
+app = Flask(__name__)
+app.config.from_object('config')
+db = SQLAlchemy(app)
+
+lm = LoginManager()
+lm.init_app(app)
+lm.login_view = 'login'
+oid = OpenID(app, os.path.join(basedir, 'tmp'))
 
 from app import views, models
