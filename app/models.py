@@ -1,4 +1,5 @@
 from app import db
+from hashlib import md5
 
 
 class User(db.Model):
@@ -24,6 +25,12 @@ class User(db.Model):
             return unicode(self.id)  # python2
         except NameError:
             return str(self.id)  # python3
+
+    def avatar(self, size):
+        return (
+                'http://www.gravatar.com/avatar/%s?d=mm&s=%d' %
+                (md5(self.email.encode('utf8')).hexdigest(), size)
+                )
 
     # __repr__ method tells python how to print objects of this class.
     # used for debbugging.
