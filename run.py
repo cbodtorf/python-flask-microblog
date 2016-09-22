@@ -1,3 +1,5 @@
+# Development: debug=True
+
 from app import app
 
 
